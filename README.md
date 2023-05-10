@@ -1,18 +1,27 @@
 # solc-lld64
 
+macOS solc builds using better Mach-O Linker than the 'gnu gold' one
 
-50086 solc-lld64
 
-52371 solc-std
+### Size Difference
 
+> 50086 solc-lld64
+
+> 52371 solc-std
+
+
+#### Semver
 
 Version: 0.8.21-develop.2023.5.10+commit.f07c8b1f.Darwin.appleclang
 Version: 0.8.20-ci.2023.5.10+commit.a1b79de6.mod.Darwin.appleclang
 
+### Build
 ```bash 
 TZ=UTC git show --quiet --date="format-local:%Y.%-m.%-d" --format="ci.%cd" >prerelease.txt
 cmake .. -DUSE_Z3=OFF -DUSE_CVC4=OFF -DSOLC_LINK_STATIC=ON -DSOLC_STATIC_STDLIBS=ON -DCMAKE_OSX_ARCHITECTURES='arm64' --fresh
 ```
+
+## Cmake modifications 
 
 ```diff
 # File: EthCompilerSettings.cmake
